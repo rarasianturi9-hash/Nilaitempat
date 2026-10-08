@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Media pembelajaran interaktif matematika kelas 4 tentang nilai tempat bilangan ribuan.">
+  <title>Rumah Nilai Tempat | Matematika Kelas 4</title>
+  <style>
+    :root {
+      --ink: #24324a;
+      --muted: #68748a;
+      --paper: #fffdfa;
+      --cream: #fff6dc;
+      --blue: #3676e8;
+      --blue-dark: #245bc0;
+      --blue-soft: #e9f2ff;
+      --teal: #19a99a;
+      --teal-dark: #0b8278;
+      --teal-soft: #e1f8f4;
+      --yellow: #ffc847;
+      --yellow-soft: #fff4c8;
+      --coral: #ff7167;
+      --coral-soft: #ffebe7;
+      --purple: #8259d5;
+      --purple-soft: #f0eaff;
+      --green: #49ad67;
+      --green-soft: #e7f7eb;
+      --red: #d94d55;
+      --red-soft: #ffebed;
+      --line: #dfe6f0;
+      --shadow: 0 12px 30px rgba(42, 59, 91, 0.12);
+      --shadow-soft: 0 7px 18px rgba(42, 59, 91, 0.09);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 8%, rgba(255, 200, 71, 0.17) 0 95px, transparent 96px),
+        radial-gradient(circle at 95% 20%, rgba(54, 118, 232, 0.10) 0 120px, transparent 121px),
+        linear-gradient(180deg, #fffdf8 0%, #f7fbff 53%, #fffdfa 100%);
+      font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    svg { display: block; }
+    .icon { width: 22px; height: 22px; flex: 0 0 auto; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(223, 230, 240, 0.85);
+      background: rgba(255, 253, 250, 0.92);
+      backdrop-filter: blur(13px);
+    }
+    .nav-wrap {
+      width: min(1160px, calc(100% - 32px));
+      height: 74px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border: 3px solid #fff;
+      border-radius: 14px;
+      background: var(--blue);
+      box-shadow: 0 4px 0 #1d57b8, 0 7px 13px rgba(36, 91, 192, 0.18);
+      transform: rotate(-3deg);
+    }
+    .brand-mark .icon { width: 25px; height: 25px; }
+    .brand span span { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nav-links a {
+      padding: 9px 13px;
+      border-radius: 12px;
+      color: #526079;
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible {
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+      outline: none;
+    }
+    .nav-cta {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 7px;
+      color: #fff !important;
+      background: var(--blue) !important;
+      box-shadow: 0 4px 0 var(--blue-dark);
+    }
+
+    .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    .hero {
+      min-height: 585px;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      align-items: center;
+      gap: 54px;
+      padding: 72px 0 60px;
+      overflow: hidden;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      color: #8a6500;
+      border: 1px solid #f0d77f;
+      border-radius: 999px;
+      background: var(--yellow-soft);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 650px;
+      margin: 20px 0 16px;
+      font-size: clamp(2.45rem, 5.4vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+    .hero h1 .highlight {
+      position: relative;
+      z-index: 0;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+    .hero h1 .highlight::after {
+      content: "";
+      position: absolute;
+      left: 2%; right: 0; bottom: 0.04em;
+      height: 0.19em;
+      z-index: -1;
+      border-radius: 999px;
+      background: var(--yellow);
+      transform: rotate(-1.4deg);
+      opacity: 0.62;
+    }
+    .hero-copy {
+      max-width: 580px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      border: 0;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 11px 18px;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus-visible { outline: 4px solid rgba(54, 118, 232, 0.22); outline-offset: 2px; }
+    .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 5px 0 var(--blue-dark); }
+    .btn-primary:hover { background: #2f6edc; box-shadow: 0 7px 0 var(--blue-dark); }
+    .btn-secondary { color: var(--blue-dark); border: 2px solid #b9d3ff; background: #fff; box-shadow: 0 4px 0 #d7e6ff; }
+    .btn-teal { color: #fff; background: var(--teal); box-shadow: 0 5px 0 var(--teal-dark); }
+    .btn-small { min-height: 42px; padding: 9px 14px; border-radius: 13px; font-size: 0.9rem; }
+
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 17px; margin-top: 26px; }
+    .mini-badge { display: flex; align-items: center; gap: 8px; color: #56647b; font-size: 0.86rem; font-weight: 800; }
+    .mini-badge .check {
+      width: 25px; height: 25px; display: grid; place-items: center;
+      color: var(--teal-dark); border-radius: 9px; background: var(--teal-soft);
+    }
+    .mini-badge .check .icon { width: 15px; height: 15px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+    }
+    .scribble-dots {
+      position: absolute;
+      inset: 4% 4% auto auto;
+      width: 66px;
+      display: grid;
+      grid-template-columns: repeat(4, 7px);
+      gap: 9px;
+      opacity: 0.32;
+    }
+    .scribble-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+    .number-house {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 470px);
+      padding-top: 91px;
+      filter: drop-shadow(0 18px 20px rgba(49, 68, 101, 0.16));
+    }
+    .roof {
+      position: absolute;
+      top: 0;
+      left: 6%;
+      width: 88%;
+      height: 128px;
+      border: 7px solid #293958;
+      border-bottom: 0;
+      border-radius: 26px 26px 8px 8px;
+      background: var(--coral);
+      transform: perspective(320px) rotateX(24deg) rotate(1deg);
+      clip-path: polygon(50% 0, 100% 77%, 92% 100%, 8% 100%, 0 77%);
+    }
+    .house-body {
+      position: relative;
+      padding: 33px 25px 25px;
+      border: 7px solid #293958;
+      border-radius: 15px 15px 30px 30px;
+      background: #fff;
+    }
+    .house-sign {
+      position: absolute;
+      top: -30px; left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      padding: 9px 20px;
+      border: 4px solid #293958;
+      border-radius: 13px;
+      background: var(--yellow);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .house-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+    .house-cell {
+      min-width: 0;
+      padding: 10px 4px 13px;
+      border: 3px solid #293958;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: inset 0 -5px rgba(36, 50, 74, 0.08);
+    }
+    .house-cell:nth-child(1) { background: var(--purple-soft); }
+    .house-cell:nth-child(2) { background: var(--blue-soft); }
+    .house-cell:nth-child(3) { background: var(--teal-soft); }
+    .house-cell:nth-child(4) { background: var(--yellow-soft); }
+    .house-cell small { display: block; min-height: 32px; color: #59677e; font-size: clamp(0.56rem, 1.6vw, 0.72rem); font-weight: 900; text-transform: uppercase; }
+    .house-cell strong { display: block; font-size: clamp(2.35rem, 6vw, 4rem); line-height: 1; }
+    .ground-line { height: 10px; margin: 17px 20px 0; border-radius: 99px; background: #9cd9ad; }
+    .mascot {
+      position: absolute;
+      z-index: 4;
+      right: -18px;
+      bottom: 2px;
+      width: 116px;
+      transform: rotate(3deg);
+      animation: floaty 3.7s ease-in-out infinite;
+    }
+    .note-card {
+      position: absolute;
+      z-index: 5;
+      left: -22px;
+      bottom: -10px;
+      width: 166px;
+      padding: 11px 14px;
+      border: 2px solid #f0d77f;
+      border-radius: 15px;
+      background: #fff9df;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.78rem;
+      font-weight: 900;
+      transform: rotate(-4deg);
+    }
+    @keyframes floaty { 0%, 100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+
+    section { scroll-margin-top: 90px; }
+    .section { padding: 82px 0; }
+    .section-tint { background: linear-gradient(180deg, rgba(233, 242, 255, 0.72), rgba(247, 251, 255, 0.42)); border-block: 1px solid #e6edf7; }
+    .section-head { max-width: 710px; margin: 0 auto 39px; text-align: center; }
+    .section-kicker { color: var(--blue); font-size: 0.8rem; font-weight: 900; letter-spacing: 0.13em; text-transform: uppercase; }
+    .section-head h2 { margin: 8px 0 10px; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -0.035em; }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .path-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .path-card {
+      position: relative;
+      padding: 25px;
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .path-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .path-card::after {
+      content: "";
+      position: absolute;
+      right: -22px; top: -25px;
+      width: 92px; height: 92px;
+      border-radius: 50%;
+      opacity: 0.55;
+    }
+    .path-card:nth-child(1)::after { background: var(--purple-soft); }
+    .path-card:nth-child(2)::after { background: var(--teal-soft); }
+    .path-card:nth-child(3)::after { background: var(--yellow-soft); }
+    .path-icon {
+      position: relative;
+      z-index: 1;
+      width: 52px; height: 52px;
+      display: grid; place-items: center;
+      border-radius: 17px;
+      transform: rotate(-3deg);
+    }
+    .path-card:nth-child(1) .path-icon { color: var(--purple); background: var(--purple-soft); }
+    .path-card:nth-child(2) .path-icon { color: var(--teal-dark); background: var(--teal-soft); }
+    .path-card:nth-child(3) .path-icon { color: #987000; background: var(--yellow-soft); }
+    .path-icon .icon { width: 30px; height: 30px; }
+    .path-step { display: inline-block; margin-top: 22px; color: var(--muted); font-size: 0.73rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+    .path-card h3 { margin: 5px 0 7px; font-size: 1.25rem; }
+    .path-card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+    .concept-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 25px; align-items: stretch; }
+    .teacher-card, .concept-card {
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    .teacher-card { padding: 27px; }
+    .teacher-title { display: flex; align-items: center; gap: 13px; }
+    .teacher-title .round-icon { width: 47px; height: 47px; display: grid; place-items: center; color: var(--blue); border-radius: 15px; background: var(--blue-soft); }
+    .teacher-title h3 { margin: 0; font-size: 1.26rem; }
+    .teacher-card > p { color: var(--muted); }
+    .goal-list { display: grid; gap: 11px; padding: 0; margin: 21px 0 0; list-style: none; }
+    .goal-list li { display: grid; grid-template-columns: 30px 1fr; align-items: start; gap: 10px; }
+    .goal-num { width: 29px; height: 29px; display: grid; place-items: center; color: #fff; border-radius: 10px; background: var(--blue); font-size: 0.78rem; font-weight: 900; box-shadow: 0 3px 0 var(--blue-dark); }
+    .goal-list strong { display: block; font-size: 0.95rem; }
+    .goal-list span:last-child { color: var(--muted); font-size: 0.83rem; }
+    .concept-card { padding: 28px; background: linear-gradient(140deg, #fff 0%, #fffcf1 100%); }
+    .concept-card h3 { margin: 0 0 18px; font-size: 1.22rem; }
+    .concept-example { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .example-column { padding: 14px 6px; border: 2px dashed; border-radius: 16px; text-align: center; }
+    .example-column:nth-child(1) { border-color: #b6a3e7; background: var(--purple-soft); }
+    .example-column:nth-child(2) { border-color: #a9c9ff; background: var(--blue-soft); }
+    .example-column:nth-child(3) { border-color: #89d9cf; background: var(--teal-soft); }
+    .example-column:nth-child(4) { border-color: #edd374; background: var(--yellow-soft); }
+    .example-column small { display: block; min-height: 35px; color: var(--muted); font-size: 0.67rem; font-weight: 900; text-transform: uppercase; }
+    .example-column b { display: block; margin: 4px 0; font-size: 2.1rem; line-height: 1; }
+    .example-column span { color: #59677e; font-size: 0.73rem; font-weight: 800; }
+    .equals-box { margin-top: 17px; padding: 15px; border-radius: 15px; background: #f7f9fc; text-align: center; }
+    .equals-box small { display: block; color: var(--muted); font-weight: 800; }
+    .equals-box strong { color: var(--blue-dark); font-size: clamp(1.2rem, 3vw, 1.65rem); letter-spacing: 0.015em; }
+    .concept-tip { display: flex; gap: 10px; margin: 17px 0 0; padding: 13px 15px; border-left: 5px solid var(--yellow); border-radius: 5px 13px 13px 5px; background: var(--yellow-soft); color: #6f5715; font-size: 0.86rem; }
+
+    .sim-shell {
+      padding: 26px;
+      border: 2px solid #d6e5ff;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 17px 38px rgba(42, 78, 133, 0.13);
+    }
+    .sim-toolbar {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 21px;
+      border-bottom: 2px dashed #dfe6f0;
+    }
+    .sim-toolbar label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 0.76rem; font-weight: 900; letter-spacing: 0.07em; text-transform: uppercase; }
+    .number-input-wrap { display: flex; align-items: center; gap: 8px; }
+    #numberInput {
+      width: 155px;
+      height: 49px;
+      padding: 8px 13px;
+      border: 2px solid #b8cce9;
+      border-radius: 14px;
+      color: var(--ink);
+      background: #fbfdff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+      outline: none;
+    }
+    #numberInput:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(54, 118, 232, 0.13); }
+    .toolbar-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .mini-btn {
+      min-height: 44px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 8px 13px;
+      border: 2px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+      font-size: 0.84rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.16s ease;
+    }
+    .mini-btn:hover { border-color: #afc8ef; color: var(--blue-dark); background: var(--blue-soft); transform: translateY(-1px); }
+    .mini-btn:focus-visible { outline: 3px solid rgba(54, 118, 232, 0.2); outline-offset: 2px; }
+
+    .sim-display { margin-top: 24px; }
+    .place-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+    .place-card {
+      position: relative;
+      border: 3px solid transparent;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f8f9fc;
+      transition: 0.18s ease;
+    }
+    .place-card[data-place="ribuan"] { --card: var(--purple); --soft: var(--purple-soft); }
+    .place-card[data-place="ratusan"] { --card: var(--blue); --soft: var(--blue-soft); }
+    .place-card[data-place="puluhan"] { --card: var(--teal); --soft: var(--teal-soft); }
+    .place-card[data-place="satuan"] { --card: #d29b10; --soft: var(--yellow-soft); }
+    .place-card.selected { border-color: var(--card); box-shadow: 0 0 0 4px color-mix(in srgb, var(--card) 15%, transparent); transform: translateY(-3px); }
+    .place-label { padding: 10px 6px; color: #fff; background: var(--card); font-size: 0.74rem; font-weight: 900; letter-spacing: 0.05em; text-align: center; text-transform: uppercase; }
+    .digit-control { display: grid; grid-template-columns: 38px 1fr 38px; align-items: center; gap: 3px; padding: 13px 8px 8px; background: var(--soft); }
+    .digit-btn {
+      width: 36px; height: 36px;
+      border: 2px solid color-mix(in srgb, var(--card) 47%, white);
+      border-radius: 11px;
+      color: var(--card);
+      background: rgba(255,255,255,0.85);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .digit-btn:hover { color: #fff; background: var(--card); }
+    .digit-btn:focus-visible { outline: 3px solid rgba(36, 50, 74, 0.18); outline-offset: 1px; }
+    .digit-number { font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1; font-weight: 900; text-align: center; }
+    .beads {
+      display: grid;
+      grid-template-columns: repeat(3, 15px);
+      justify-content: center;
+      align-content: center;
+      gap: 6px;
+      min-height: 88px;
+      padding: 10px 4px 15px;
+      background: linear-gradient(180deg, var(--soft), #fff);
+    }
+    .bead { width: 15px; height: 15px; border: 2px solid #d5dce7; border-radius: 50%; background: #fff; transition: 0.18s ease; }
+    .bead.active { border-color: var(--card); background: var(--card); box-shadow: inset 0 -3px rgba(36, 50, 74, 0.13); transform: scale(1.06); }
+    .place-value { min-height: 52px; display: grid; place-items: center; padding: 8px 5px; border-top: 2px dashed #dce3ed; background: #fff; color: var(--card); font-size: 0.83rem; font-weight: 900; text-align: center; }
+
+    .result-panel {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 15px;
+      margin-top: 18px;
+    }
+    .big-number, .expanded-panel { border-radius: 18px; padding: 18px; }
+    .big-number { display: flex; flex-direction: column; justify-content: center; color: #fff; background: var(--ink); }
+    .big-number small, .expanded-panel small { display: block; margin-bottom: 4px; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+    .big-number strong { font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: 0.08em; }
+    .big-number span { margin-top: 5px; color: #cad4e5; font-size: 0.86rem; font-weight: 800; text-transform: capitalize; }
+    .expanded-panel { display: flex; flex-direction: column; justify-content: center; border: 2px solid #d7e5f9; background: #f4f8ff; }
+    .expanded-panel small { color: var(--blue-dark); }
+    .expanded-form { font-size: clamp(1.12rem, 3vw, 1.72rem); font-weight: 900; letter-spacing: 0.025em; }
+    .focus-info { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 13px 15px; border-radius: 15px; background: var(--yellow-soft); color: #665017; font-size: 0.9rem; font-weight: 800; }
+    .focus-info .info-icon { width: 30px; height: 30px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 10px; color: #7b5c00; background: var(--yellow); }
+
+    .quiz-wrap { position: relative; max-width: 840px; margin: 0 auto; }
+    .quiz-card {
+      position: relative;
+      min-height: 466px;
+      padding: 29px;
+      border: 2px solid #e3d8ff;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 17px 40px rgba(84, 61, 135, 0.13);
+      overflow: hidden;
+    }
+    .quiz-card::before {
+      content: "";
+      position: absolute; right: -58px; top: -58px;
+      width: 175px; height: 175px; border-radius: 50%; background: var(--purple-soft);
+    }
+    .quiz-start, .quiz-finish { min-height: 406px; display: grid; place-items: center; text-align: center; }
+    .start-inner, .finish-inner { position: relative; z-index: 2; max-width: 525px; }
+    .start-illustration, .finish-illustration {
+      width: 88px; height: 88px; display: grid; place-items: center; margin: 0 auto 18px;
+      border: 3px solid #ccb9f2; border-radius: 28px; color: var(--purple); background: var(--purple-soft); transform: rotate(-3deg);
+    }
+    .start-illustration .icon, .finish-illustration .icon { width: 49px; height: 49px; }
+    .quiz-start h3, .quiz-finish h3 { margin: 0 0 8px; font-size: 1.75rem; }
+    .quiz-start p, .quiz-finish p { margin: 0 auto 22px; color: var(--muted); }
+    .quiz-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; }
+    .quiz-meta span { padding: 6px 10px; border-radius: 999px; color: #5d487e; background: var(--purple-soft); font-size: 0.76rem; font-weight: 900; }
+    .quiz-game { position: relative; z-index: 2; }
+    .quiz-top { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; }
+    .question-count, .score-box { color: #65527d; font-size: 0.78rem; font-weight: 900; white-space: nowrap; }
+    .progress-track { height: 10px; border-radius: 99px; background: #ece8f4; overflow: hidden; }
+    .progress-fill { width: 10%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--purple), #aa80ef); transition: width 0.35s ease; }
+    .question-type { display: inline-block; margin-top: 28px; padding: 6px 10px; border-radius: 9px; color: var(--blue-dark); background: var(--blue-soft); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+    .question-text { margin: 14px 0 10px; font-size: clamp(1.16rem, 3vw, 1.48rem); line-height: 1.45; }
+    .question-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 62px; margin: 2px 0 19px; padding: 7px 18px;
+      border: 2px dashed #baa3e7; border-radius: 16px; color: #51378a; background: #f8f4ff;
+      font-size: clamp(1.7rem, 5vw, 2.6rem); font-weight: 900; letter-spacing: 0.08em;
+    }
+    .target-digit { color: var(--coral); border-bottom: 5px solid var(--yellow); }
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .answer-btn {
+      min-height: 58px;
+      padding: 12px 15px;
+      border: 2px solid #dce3ed;
+      border-radius: 15px;
+      background: #fff;
+      font-weight: 900;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.16s ease;
+    }
+    .answer-btn:hover:not(:disabled) { border-color: #a58add; background: #faf8ff; transform: translateY(-2px); box-shadow: 0 5px 12px rgba(84, 61, 135, 0.09); }
+    .answer-btn:focus-visible { outline: 3px solid rgba(130, 89, 213, 0.22); outline-offset: 2px; }
+    .answer-btn.correct { color: #277741; border-color: #62be7c; background: var(--green-soft); }
+    .answer-btn.wrong { color: #a63840; border-color: #e27178; background: var(--red-soft); }
+    .answer-btn:disabled { cursor: default; }
+    .feedback-row { min-height: 59px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+    .feedback { font-size: 0.9rem; font-weight: 900; }
+    .feedback.good { color: #287942; }
+    .feedback.bad { color: #b03b43; }
+    #nextBtn { visibility: hidden; }
+    #nextBtn.show { visibility: visible; }
+    .final-score { margin: 11px 0 7px; color: var(--purple); font-size: 3.5rem; line-height: 1; font-weight: 900; }
+    .confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .confetti-piece { position: absolute; top: -18px; width: 10px; height: 18px; border-radius: 3px; animation: fall 1.8s ease-in forwards; }
+    @keyframes fall { to { transform: translate(var(--drift), 560px) rotate(620deg); opacity: 0; } }
+    .hidden { display: none !important; }
+
+    .summary-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 22px; }
+    .summary-board {
+      padding: 28px;
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    .summary-board h3 { margin: 0 0 19px; }
+    .summary-list { display: grid; gap: 11px; }
+    .summary-row { display: grid; grid-template-columns: 49px 1fr auto; align-items: center; gap: 13px; padding: 12px 14px; border-radius: 15px; }
+    .summary-row:nth-child(1) { background: var(--purple-soft); }
+    .summary-row:nth-child(2) { background: var(--blue-soft); }
+    .summary-row:nth-child(3) { background: var(--teal-soft); }
+    .summary-row:nth-child(4) { background: var(--yellow-soft); }
+    .summary-digit { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 13px; color: #fff; background: var(--ink); font-size: 1.4rem; font-weight: 900; }
+    .summary-row b { display: block; }
+    .summary-row span { color: var(--muted); font-size: 0.79rem; }
+    .summary-value { font-size: 1.08rem !important; font-weight: 900; color: var(--ink) !important; }
+    .remember-card {
+      position: relative;
+      min-height: 100%;
+      padding: 28px;
+      border: 2px solid #f0d77f;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #fff9dc, #fffdf2);
+      overflow: hidden;
+    }
+    .remember-card::after { content: ""; position: absolute; right: -36px; bottom: -42px; width: 140px; height: 140px; border: 24px solid rgba(255, 200, 71, 0.24); border-radius: 50%; }
+    .remember-card .round-icon { position: relative; z-index: 1; width: 54px; height: 54px; display: grid; place-items: center; border-radius: 18px; color: #806000; background: var(--yellow); transform: rotate(4deg); }
+    .remember-card h3 { position: relative; z-index: 1; margin: 17px 0 9px; font-size: 1.5rem; }
+    .remember-card p { position: relative; z-index: 1; color: #675625; }
+    .memory-phrase { position: relative; z-index: 1; margin-top: 18px; padding: 15px; border: 2px dashed #d5b84f; border-radius: 15px; background: rgba(255,255,255,0.7); font-weight: 900; }
+
+    footer { padding: 30px 0 38px; border-top: 1px solid var(--line); background: #fff; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 0.82rem; }
+    .footer-brand { display: flex; align-items: center; gap: 9px; color: var(--ink); font-weight: 900; }
+    .footer-mark { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--blue); }
+    .footer-mark .icon { width: 18px; height: 18px; }
+
+    .toast {
+      position: fixed;
+      z-index: 100;
+      left: 50%; bottom: 24px;
+      transform: translate(-50%, 25px);
+      padding: 11px 16px;
+      border-radius: 13px;
+      color: #fff;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+      font-weight: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 32px; padding-top: 54px; }
+      .hero-copy { max-width: 700px; }
+      .hero-visual { min-height: 430px; }
+      .path-grid { grid-template-columns: 1fr; }
+      .path-card { display: grid; grid-template-columns: 60px 1fr; column-gap: 16px; align-items: start; }
+      .path-step { margin-top: 3px; }
+      .path-card p { grid-column: 2; }
+      .concept-layout, .summary-grid { grid-template-columns: 1fr; }
+      .result-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      .container, .nav-wrap { width: min(100% - 22px, 1160px); }
+      .nav-wrap { height: 66px; }
+      .brand > span { font-size: 0.9rem; }
+      .brand-mark { width: 38px; height: 38px; }
+      .nav-cta { padding: 8px 10px !important; font-size: 0.78rem !important; }
+      .hero { padding: 42px 0 48px; }
+      .hero h1 { font-size: clamp(2.25rem, 13vw, 3.6rem); }
+      .hero-actions .btn { width: 100%; }
+      .hero-visual { min-height: 355px; }
+      .number-house { padding-top: 74px; }
+      .roof { height: 105px; border-width: 5px; }
+      .house-body { padding: 29px 12px 17px; border-width: 5px; }
+      .house-sign { top: -25px; padding: 7px 13px; border-width: 3px; font-size: 0.78rem; }
+      .house-grid { gap: 5px; }
+      .house-cell { border-width: 2px; padding-inline: 2px; }
+      .house-cell small { min-height: 26px; font-size: 0.47rem; }
+      .mascot { width: 81px; right: -3px; }
+      .note-card { left: -2px; bottom: -22px; width: 133px; font-size: 0.67rem; }
+      .section { padding: 62px 0; }
+      .section-head { margin-bottom: 28px; }
+      .concept-example { gap: 5px; }
+      .concept-card, .teacher-card { padding: 20px; }
+      .example-column { padding-inline: 2px; }
+      .example-column small { font-size: 0.52rem; min-height: 30px; }
+      .example-column b { font-size: 1.65rem; }
+      .sim-shell { padding: 14px; border-radius: 21px; }
+      .sim-toolbar { align-items: stretch; flex-direction: column; }
+      .number-input-wrap, #numberInput { width: 100%; }
+      .toolbar-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .place-grid { gap: 5px; }
+      .place-card { border-radius: 13px; border-width: 2px; }
+      .place-label { padding: 8px 2px; font-size: 0.53rem; }
+      .digit-control { grid-template-columns: 1fr; padding: 8px 3px; }
+      .digit-btn { width: 100%; height: 30px; border-radius: 8px; }
+      .digit-number { order: -1; font-size: 2.35rem; }
+      .beads { grid-template-columns: repeat(3, 10px); min-height: 67px; gap: 4px; }
+      .bead { width: 10px; height: 10px; border-width: 1px; }
+      .place-value { min-height: 48px; font-size: 0.63rem; }
+      .big-number strong { font-size: 2.4rem; }
+      .expanded-form { font-size: 1rem; }
+      .quiz-card { padding: 20px 16px; min-height: 500px; }
+      .quiz-top { grid-template-columns: auto auto; }
+      .progress-track { grid-row: 2; grid-column: 1 / -1; }
+      .options-grid { grid-template-columns: 1fr; }
+      .feedback-row { align-items: stretch; flex-direction: column; }
+      #nextBtn { width: 100%; }
+      .summary-board, .remember-card { padding: 20px; }
+      .summary-row { grid-template-columns: 43px 1fr; }
+      .summary-value { grid-column: 2; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="sr-only" aria-hidden="true" width="0" height="0">
+    <defs>
+      <symbol id="i-blocks" viewBox="0 0 24 24">
+        <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5c3.4-.8 6-.2 8 1.5v12c-2-1.7-4.6-2.3-8-1.5zm16 0c-3.4-.8-6-.2-8 1.5v12c2-1.7 4.6-2.3 8-1.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8m4 0h4M4 17h4m4 0h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="i-pencil" viewBox="0 0 24 24"><path d="m5 19 1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L9 18zM14.5 6.5l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m14.5 9.5 5-5M16 4.5h3.5V8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19 8a8 8 0 1 0 .4 7M19 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-dice" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/></symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24"><path d="M5 10h3l4-3v10l-4-3H5zM16 9.2a4 4 0 0 1 0 5.6M18.5 6.7a7.5 7.5 0 0 1 0 10.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v6m0-9v.1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zm0 2H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4M12 13v4m-4 3h8m-6-3h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-lamp" viewBox="0 0 24 24"><path d="M8.5 15a7 7 0 1 1 7 0c-.8.6-1 1.2-1 2h-5c0-.8-.2-1.4-1-2zM9.5 20h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="topbar">
+    <div class="nav-wrap">
+      <a class="brand" href="#beranda" aria-label="Rumah Nilai Tempat, kembali ke beranda">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-blocks"></use></svg></span>
+        <span>Rumah <span>Nilai Tempat</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#belajar">Belajar</a>
+        <a href="#simulasi">Simulasi</a>
+        <a href="#tantangan">Tantangan</a>
+        <a class="nav-cta" href="#simulasi"><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg> Mulai</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="beranda">
+      <div class="hero-content">
+        <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg> Matematika Kelas 4</span>
+        <h1>Ayo Masuk ke <span class="highlight">Rumah Bilangan</span></h1>
+        <p class="hero-copy">Temukan tempat tinggal setiap angka dalam bilangan ribuan. Atur angkanya, lihat nilainya, lalu taklukkan tantangannya.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#simulasi"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg> Coba Simulasi</a>
+          <a class="btn btn-secondary" href="#belajar"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg> Pelajari Dahulu</a>
+        </div>
+        <div class="hero-badges" aria-label="Fitur pembelajaran">
+          <div class="mini-badge"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span> Interaktif</div>
+          <div class="mini-badge"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span> Mudah dipahami</div>
+          <div class="mini-badge"><span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span> Latihan langsung</div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Ilustrasi rumah nilai tempat untuk bilangan 4725">
+        <div class="scribble-dots" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="number-house">
+          <div class="roof" aria-hidden="true"></div>
+          <div class="house-body">
+            <div class="house-sign">Bilangan 4.725</div>
+            <div class="house-grid">
+              <div class="house-cell"><small>Ribuan</small><strong>4</strong></div>
+              <div class="house-cell"><small>Ratusan</small><strong>7</strong></div>
+              <div class="house-cell"><small>Puluhan</small><strong>2</strong></div>
+              <div class="house-cell"><small>Satuan</small><strong>5</strong></div>
+            </div>
+            <div class="ground-line"></div>
+          </div>
+        </div>
+        <div class="note-card">Setiap angka punya tempat dan nilai yang berbeda.</div>
+        <svg class="mascot" viewBox="0 0 140 156" role="img" aria-label="Maskot burung hantu berkacamata">
+          <path d="M39 38 24 18l32 9M101 38l15-20-32 9" fill="#8259d5" stroke="#293958" stroke-width="6" stroke-linejoin="round"/>
+          <ellipse cx="70" cy="87" rx="49" ry="57" fill="#9d7add" stroke="#293958" stroke-width="6"/>
+          <ellipse cx="70" cy="102" rx="31" ry="35" fill="#f5eefe"/>
+          <circle cx="50" cy="67" r="21" fill="#fff" stroke="#293958" stroke-width="5"/>
+          <circle cx="91" cy="67" r="21" fill="#fff" stroke="#293958" stroke-width="5"/>
+          <path d="M70 67h1M29 65l-10-4m102 4 10-4" stroke="#293958" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="53" cy="70" r="6" fill="#293958"/><circle cx="88" cy="70" r="6" fill="#293958"/>
+          <path d="m70 75-10 9 10 7 10-7z" fill="#ffc847" stroke="#293958" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M48 118c12 8 32 8 44 0" fill="none" stroke="#293958" stroke-width="5" stroke-linecap="round"/>
+          <path d="M49 140 39 151m52-11 10 11" stroke="#293958" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section section-tint" aria-labelledby="alur-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Peta Belajar</span>
+          <h2>Tiga langkah menjadi jago</h2>
+          <p>Ikuti urutannya agar konsep nilai tempat terasa lebih mudah.</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <div class="path-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></div>
+            <div><span class="path-step">Langkah 01</span><h3>Kenali Tempat</h3></div>
+            <p>Pelajari urutan ribuan, ratusan, puluhan, dan satuan.</p>
+          </article>
+          <article class="path-card">
+            <div class="path-icon"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg></div>
+            <div><span class="path-step">Langkah 02</span><h3>Mainkan Angka</h3></div>
+            <p>Naikkan dan turunkan angka untuk melihat perubahan nilainya.</p>
+          </article>
+          <article class="path-card">
+            <div class="path-icon"><svg class="icon" aria-hidden="true"><use href="#i-pencil"></use></svg></div>
+            <div><span class="path-step">Langkah 03</span><h3>Uji Pemahaman</h3></div>
+            <p>Jawab soal acak dan kumpulkan poin terbaikmu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="belajar" aria-labelledby="belajar-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Mari Belajar</span>
+          <h2>Apa itu nilai tempat?</h2>
+          <p>Nilai tempat adalah nilai sebuah angka berdasarkan posisinya di dalam bilangan.</p>
+        </div>
+        <div class="concept-layout">
+          <aside class="teacher-card">
+            <div class="teacher-title">
+              <span class="round-icon"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg></span>
+              <div><small class="section-kicker">Tujuan</small><h3>Setelah belajar, kamu bisa</h3></div>
+            </div>
+            <p>Perhatikan posisi angka dari kiri ke kanan pada bilangan empat angka.</p>
+            <ul class="goal-list">
+              <li><span class="goal-num">1</span><span><strong>Menentukan posisi</strong><span>Menyebutkan tempat suatu angka.</span></span></li>
+              <li><span class="goal-num">2</span><span><strong>Menentukan nilai</strong><span>Menghitung nilai angka sesuai posisinya.</span></span></li>
+              <li><span class="goal-num">3</span><span><strong>Menguraikan bilangan</strong><span>Menulis bilangan dalam bentuk panjang.</span></span></li>
+            </ul>
+          </aside>
+          <article class="concept-card">
+            <h3>Contoh: bilangan 4.725</h3>
+            <div class="concept-example">
+              <div class="example-column"><small>Ribuan</small><b>4</b><span>4 × 1.000</span></div>
+              <div class="example-column"><small>Ratusan</small><b>7</b><span>7 × 100</span></div>
+              <div class="example-column"><small>Puluhan</small><b>2</b><span>2 × 10</span></div>
+              <div class="example-column"><small>Satuan</small><b>5</b><span>5 × 1</span></div>
+            </div>
+            <div class="equals-box"><small>Bentuk panjang</small><strong>4.000 + 700 + 20 + 5</strong></div>
+            <p class="concept-tip"><svg class="icon" aria-hidden="true"><use href="#i-lamp"></use></svg><span><b>Ingat:</b> makin ke kiri posisi suatu angka, makin besar nilai tempatnya.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="simulasi" aria-labelledby="simulasi-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Laboratorium Angka</span>
+          <h2>Simulasi nilai tempat</h2>
+          <p>Gunakan tombol tambah dan kurang. Bulatan warna membantu menunjukkan banyaknya angka pada setiap tempat.</p>
+        </div>
+
+        <div class="sim-shell">
+          <div class="sim-toolbar">
+            <div>
+              <label for="numberInput">Masukkan bilangan 1.000–9.999</label>
+              <div class="number-input-wrap">
+                <input id="numberInput" type="number" min="1000" max="9999" value="4725" inputmode="numeric" aria-describedby="inputHint">
+                <span id="inputHint" class="sr-only">Masukkan bilangan bulat antara seribu dan sembilan ribu sembilan ratus sembilan puluh sembilan</span>
+              </div>
+            </div>
+            <div class="toolbar-actions">
+              <button class="mini-btn" id="randomBtn" type="button"><svg class="icon" aria-hidden="true"><use href="#i-dice"></use></svg> Acak Angka</button>
+              <button class="mini-btn" id="speakBtn" type="button"><svg class="icon" aria-hidden="true"><use href="#i-sound"></use></svg> Bacakan</button>
+              <button class="mini-btn" id="resetBtn" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg> Atur Ulang</button>
+            </div>
+          </div>
+
+          <div class="sim-display">
+            <div class="place-grid" id="placeGrid" aria-label="Pengatur digit berdasarkan nilai tempat"></div>
+            <div class="result-panel" aria-live="polite">
+              <div class="big-number">
+                <small>Bilanganmu</small>
+                <strong id="fullNumber">4.725</strong>
+                <span id="numberWords">empat ribu tujuh ratus dua puluh lima</span>
+              </div>
+              <div class="expanded-panel">
+                <small>Bentuk panjang</small>
+                <div class="expanded-form" id="expandedForm">4.000 + 700 + 20 + 5</div>
+              </div>
+            </div>
+            <div class="focus-info" id="focusInfo" aria-live="polite">
+              <span class="info-icon"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg></span>
+              <span>Pilih salah satu kolom untuk melihat penjelasan nilainya.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tantangan" aria-labelledby="tantangan-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Saatnya Berlatih</span>
+          <h2>Tantangan nilai tempat</h2>
+          <p>Jawab 10 soal acak. Setiap jawaban benar bernilai 10 poin.</p>
+        </div>
+        <div class="quiz-wrap">
+          <div class="quiz-card">
+            <div class="quiz-start" id="quizStart">
+              <div class="start-inner">
+                <span class="start-illustration"><svg class="icon" aria-hidden="true"><use href="#i-pencil"></use></svg></span>
+                <h3>Siap menguji kemampuan?</h3>
+                <p>Soal akan mencakup posisi angka, nilai angka, bentuk panjang, dan menyusun bilangan.</p>
+                <div class="quiz-meta"><span>10 soal</span><span>10 poin per soal</span><span>Soal acak</span></div>
+                <button class="btn btn-primary" id="startQuizBtn" type="button"><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg> Mulai Tantangan</button>
+              </div>
+            </div>
+
+            <div class="quiz-game hidden" id="quizGame">
+              <div class="quiz-top">
+                <span class="question-count" id="questionCount">Soal 1 dari 10</span>
+                <div class="progress-track" aria-label="Kemajuan kuis"><div class="progress-fill" id="progressFill"></div></div>
+                <span class="score-box" id="scoreBox">Poin: 0</span>
+              </div>
+              <span class="question-type" id="questionType">Nilai angka</span>
+              <h3 class="question-text" id="questionText">Pertanyaan tampil di sini.</h3>
+              <div class="question-number" id="questionNumber">4.725</div>
+              <div class="options-grid" id="optionsGrid"></div>
+              <div class="feedback-row">
+                <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+                <button class="btn btn-teal btn-small" id="nextBtn" type="button">Soal Berikutnya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+              </div>
+            </div>
+
+            <div class="quiz-finish hidden" id="quizFinish">
+              <div class="finish-inner">
+                <span class="finish-illustration"><svg class="icon" aria-hidden="true"><use href="#i-trophy"></use></svg></span>
+                <h3 id="finishTitle">Latihan selesai</h3>
+                <div class="final-score" id="finalScore">80</div>
+                <p id="finishMessage">Pemahamanmu sudah baik. Terus berlatih agar makin mantap.</p>
+                <button class="btn btn-primary" id="retryBtn" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg> Ulangi Tantangan</button>
+              </div>
+            </div>
+            <div class="confetti" id="confetti" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" aria-labelledby="ringkasan-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Ringkasan</span>
+          <h2>Simpan konsep penting ini</h2>
+          <p>Gunakan bilangan 4.725 sebagai contoh untuk mengingat setiap tempat.</p>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-board">
+            <h3>Peta bilangan 4.725</h3>
+            <div class="summary-list">
+              <div class="summary-row"><span class="summary-digit">4</span><div><b>Ribuan</b><span>4 dikali 1.000</span></div><span class="summary-value">4.000</span></div>
+              <div class="summary-row"><span class="summary-digit">7</span><div><b>Ratusan</b><span>7 dikali 100</span></div><span class="summary-value">700</span></div>
+              <div class="summary-row"><span class="summary-digit">2</span><div><b>Puluhan</b><span>2 dikali 10</span></div><span class="summary-value">20</span></div>
+              <div class="summary-row"><span class="summary-digit">5</span><div><b>Satuan</b><span>5 dikali 1</span></div><span class="summary-value">5</span></div>
+            </div>
+          </article>
+          <aside class="remember-card">
+            <span class="round-icon"><svg class="icon" aria-hidden="true"><use href="#i-lamp"></use></svg></span>
+            <h3>Cara mudah mengingat</h3>
+            <p>Baca tempat dari kanan ke kiri: satuan, puluhan, ratusan, lalu ribuan.</p>
+            <div class="memory-phrase">Ribuan · Ratusan · Puluhan · Satuan</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="footer-mark"><svg class="icon" aria-hidden="true"><use href="#i-blocks"></use></svg></span> Rumah Nilai Tempat</div>
+      <span>Media pembelajaran Matematika untuk SD Kelas 4</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const placeNames = ["ribuan", "ratusan", "puluhan", "satuan"];
+      const placeLabels = ["Ribuan", "Ratusan", "Puluhan", "Satuan"];
+      const multipliers = [1000, 100, 10, 1];
+      let digits = [4, 7, 2, 5];
+      let selectedPlace = -1;
+
+      const placeGrid = document.getElementById("placeGrid");
+      const numberInput = document.getElementById("numberInput");
+      const fullNumber = document.getElementById("fullNumber");
+      const numberWords = document.getElementById("numberWords");
+      const expandedForm = document.getElementById("expandedForm");
+      const focusInfo = document.getElementById("focusInfo");
+      const toast = document.getElementById("toast");
+      let toastTimer;
+
+      function formatID(number) {
+        return Number(number).toLocaleString("id-ID");
+      }
+
+      function terbilang(number) {
+        const dasar = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
+        function baca(n) {
+          if (n < 12) return dasar[n];
+          if (n < 20) return baca(n - 10) + " belas";
+          if (n < 100) return baca(Math.floor(n / 10)) + " puluh" + (n % 10 ? " " + baca(n % 10) : "");
+          if (n < 200) return "seratus" + (n - 100 ? " " + baca(n - 100) : "");
+          if (n < 1000) return baca(Math.floor(n / 100)) + " ratus" + (n % 100 ? " " + baca(n % 100) : "");
+          if (n < 2000) return "seribu" + (n - 1000 ? " " + baca(n - 1000) : "");
+          if (n < 10000) return baca(Math.floor(n / 1000)) + " ribu" + (n % 1000 ? " " + baca(n % 1000) : "");
+          return "bilangan di luar jangkauan";
+        }
+        return baca(Number(number));
+      }
+
+      function currentNumber() {
+        return digits.reduce((sum, digit, index) => sum + digit * multipliers[index], 0);
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      function makeBeads(count) {
+        return Array.from({ length: 9 }, (_, index) => '<span class="bead' + (index < count ? " active" : "") + '" aria-hidden="true"></span>').join("");
+      }
+
+      function renderPlaceGrid() {
+        placeGrid.innerHTML = digits.map((digit, index) => {
+          const value = digit * multipliers[index];
+          return `
+            <article class="place-card${selectedPlace === index ? " selected" : ""}" data-place="${placeNames[index]}" data-index="${index}" tabindex="0" aria-label="${placeLabels[index]}: angka ${digit}, bernilai ${formatID(value)}">
+              <div class="place-label">${placeLabels[index]}</div>
+              <div class="digit-control">
+                <button class="digit-btn minus" type="button" data-index="${index}" aria-label="Kurangi angka ${placeLabels[index]}">−</button>
+                <strong class="digit-number">${digit}</strong>
+                <button class="digit-btn plus" type="button" data-index="${index}" aria-label="Tambah angka ${placeLabels[index]}">+</button>
+              </div>
+              <div class="beads" aria-label="${digit} bulatan aktif">${makeBeads(digit)}</div>
+              <div class="place-value">Nilai: ${formatID(value)}</div>
+            </article>`;
+        }).join("");
+      }
+
+      function updateFocusInfo() {
+        if (selectedPlace < 0) {
+          focusInfo.querySelector("span:last-child").textContent = "Pilih salah satu kolom untuk melihat penjelasan nilainya.";
+          return;
+        }
+        const digit = digits[selectedPlace];
+        const value = digit * multipliers[selectedPlace];
+        focusInfo.querySelector("span:last-child").textContent = "Angka " + digit + " berada di tempat " + placeNames[selectedPlace] + ", sehingga nilainya " + formatID(value) + ".";
+      }
+
+      function updateSimulation() {
+        const number = currentNumber();
+        numberInput.value = number;
+        fullNumber.textContent = formatID(number);
+        numberWords.textContent = terbilang(number);
+        expandedForm.textContent = digits.map((digit, index) => formatID(digit * multipliers[index])).join(" + ");
+        renderPlaceGrid();
+        updateFocusInfo();
+      }
+
+      function setNumber(number) {
+        const safe = Math.min(9999, Math.max(1000, Math.round(Number(number) || 1000)));
+        digits = String(safe).padStart(4, "0").split("").map(Number);
+        updateSimulation();
+      }
+
+      placeGrid.addEventListener("click", function (event) {
+        const button = event.target.closest("button");
+        const card = event.target.closest(".place-card");
+        if (!card) return;
+        const index = Number(card.dataset.index);
+        selectedPlace = index;
+        if (button) {
+          const change = button.classList.contains("plus") ? 1 : -1;
+          const min = index === 0 ? 1 : 0;
+          const next = Math.min(9, Math.max(min, digits[index] + change));
+          if (next === digits[index]) {
+            showToast(index === 0 && change < 0 ? "Angka ribuan minimal 1." : "Angka hanya dari 0 sampai 9.");
+          } else {
+            digits[index] = next;
+          }
+        }
+        updateSimulation();
+      });
+
+      placeGrid.addEventListener("keydown", function (event) {
+        const card = event.target.closest(".place-card");
+        if (!card || event.target.closest("button")) return;
+        if (["Enter", " ", "ArrowUp", "ArrowDown"].includes(event.key)) {
+          event.preventDefault();
+          const index = Number(card.dataset.index);
+          selectedPlace = index;
+          if (event.key === "ArrowUp") digits[index] = Math.min(9, digits[index] + 1);
+          if (event.key === "ArrowDown") digits[index] = Math.max(index === 0 ? 1 : 0, digits[index] - 1);
+          updateSimulation();
+          requestAnimationFrame(() => placeGrid.querySelector(`[data-index="${index}"]`).focus());
+        }
+      });
+
+      numberInput.addEventListener("change", function () {
+        const value = Number(this.value);
+        if (value < 1000 || value > 9999 || !Number.isInteger(value)) showToast("Bilangan disesuaikan ke rentang 1.000–9.999.");
+        selectedPlace = -1;
+        setNumber(value);
+      });
+
+      document.getElementById("randomBtn").addEventListener("click", function () {
+        selectedPlace = -1;
+        setNumber(Math.floor(Math.random() * 9000) + 1000);
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", function () {
+        selectedPlace = -1;
+        setNumber(4725);
+        showToast("Simulasi kembali ke bilangan 4.725.");
+      });
+
+      document.getElementById("speakBtn").addEventListener("click", function () {
+        if (!("speechSynthesis" in window)) {
+          showToast("Fitur suara belum didukung oleh peramban ini.");
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance("Bilangan " + terbilang(currentNumber()) + ". Bentuk panjangnya, " + digits.map((digit, index) => terbilang(digit * multipliers[index])).join(", ditambah ") + ".");
+        utterance.lang = "id-ID";
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      });
+
+      updateSimulation();
+
+      const totalQuestions = 10;
+      let questions = [];
+      let currentQuestion = 0;
+      let score = 0;
+      let hasAnswered = false;
+
+      const quizStart = document.getElementById("quizStart");
+      const quizGame = document.getElementById("quizGame");
+      const quizFinish = document.getElementById("quizFinish");
+      const questionCount = document.getElementById("questionCount");
+      const progressFill = document.getElementById("progressFill");
+      const scoreBox = document.getElementById("scoreBox");
+      const questionType = document.getElementById("questionType");
+      const questionText = document.getElementById("questionText");
+      const questionNumber = document.getElementById("questionNumber");
+      const optionsGrid = document.getElementById("optionsGrid");
+      const feedback = document.getElementById("feedback");
+      const nextBtn = document.getElementById("nextBtn");
+
+      function randomNumber() {
+        return Math.floor(Math.random() * 9000) + 1000;
+      }
+
+      function shuffle(array) {
+        const copy = array.slice();
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function numberDigits(number) {
+        return String(number).split("").map(Number);
+      }
+
+      function uniqueOptions(correct, candidates, formatter) {
+        const values = [correct, ...candidates].filter((item, index, all) => all.indexOf(item) === index).slice(0, 4);
+        let guard = 0;
+        while (values.length < 4 && guard < 100) {
+          const fallback = typeof correct === "number" ? Math.max(0, correct + (guard + 1) * 10) : "Pilihan " + (guard + 1);
+          if (!values.includes(fallback)) values.push(fallback);
+          guard++;
+        }
+        return shuffle(values).map(value => ({ value, label: formatter ? formatter(value) : String(value), correct: value === correct }));
+      }
+
+      function emphasizedNumber(number, index) {
+        return String(number).split("").map((digit, i) => i === index ? '<span class="target-digit">' + digit + '</span>' : digit).join("");
+      }
+
+      function makeQuestion(type) {
+        const number = randomNumber();
+        const ds = numberDigits(number);
+        const index = Math.floor(Math.random() * 4);
+        const digit = ds[index];
+        const value = digit * multipliers[index];
+
+        if (type === 0) {
+          return {
+            type: "Posisi angka",
+            text: "Angka yang diberi tanda berada di tempat apa?",
+            display: emphasizedNumber(number, index),
+            options: shuffle(placeLabels).map(label => ({ label, correct: label === placeLabels[index] })),
+            explanation: "Angka " + digit + " berada di tempat " + placeNames[index] + "."
+          };
+        }
+        if (type === 1) {
+          const candidates = multipliers.map(multiplier => digit * multiplier).concat([value + multipliers[index], Math.max(0, value - multipliers[index])]);
+          return {
+            type: "Nilai angka",
+            text: "Berapakah nilai angka yang diberi tanda?",
+            display: emphasizedNumber(number, index),
+            options: uniqueOptions(value, candidates, formatID),
+            explanation: digit + " × " + formatID(multipliers[index]) + " = " + formatID(value) + "."
+          };
+        }
+        if (type === 2) {
+          const correct = ds.map((d, i) => d * multipliers[i]).map(formatID).join(" + ");
+          const wrongA = [ds[0] * 100, ds[1] * 1000, ds[2] * 10, ds[3]].map(formatID).join(" + ");
+          const wrongB = [ds[0] * 1000, ds[1] * 10, ds[2] * 100, ds[3]].map(formatID).join(" + ");
+          const wrongC = [ds[0] * 1000, ds[1] * 100, ds[2], ds[3] * 10].map(formatID).join(" + ");
+          return {
+            type: "Bentuk panjang",
+            text: "Manakah bentuk panjang yang tepat?",
+            display: formatID(number),
+            options: uniqueOptions(correct, [wrongA, wrongB, wrongC]),
+            explanation: formatID(number) + " = " + correct + "."
+          };
+        }
+        if (type === 3) {
+          const altered = [];
+          for (let i = 0; i < 8; i++) {
+            const copy = ds.slice();
+            copy[Math.floor(Math.random() * 4)] = Math.floor(Math.random() * 10);
+            if (copy[0] === 0) copy[0] = 1;
+            altered.push(Number(copy.join("")));
+          }
+          return {
+            type: "Susun bilangan",
+            text: "Bilangan manakah yang sesuai dengan susunan berikut?",
+            display: ds[0] + " ribuan + " + ds[1] + " ratusan + " + ds[2] + " puluhan + " + ds[3] + " satuan",
+            options: uniqueOptions(number, altered, formatID),
+            explanation: "Susunan tersebut membentuk bilangan " + formatID(number) + "."
+          };
+        }
+        const candidates = [0,1,2,3,4,5,6,7,8,9].filter(n => n !== digit);
+        return {
+          type: "Temukan angka",
+          text: "Angka berapakah yang menempati tempat " + placeNames[index] + "?",
+          display: formatID(number),
+          options: uniqueOptions(digit, shuffle(candidates)),
+          explanation: "Pada bilangan " + formatID(number) + ", tempat " + placeNames[index] + " diisi oleh angka " + digit + "."
+        };
+      }
+
+      function prepareQuestions() {
+        const types = shuffle([0, 1, 2, 3, 4, 0, 1, 2, 3, 4]);
+        return types.map(makeQuestion);
+      }
+
+      function renderQuestion() {
+        hasAnswered = false;
+        feedback.textContent = "";
+        feedback.className = "feedback";
+        nextBtn.classList.remove("show");
+        const question = questions[currentQuestion];
+        questionCount.textContent = "Soal " + (currentQuestion + 1) + " dari " + totalQuestions;
+        progressFill.style.width = ((currentQuestion + 1) / totalQuestions * 100) + "%";
+        scoreBox.textContent = "Poin: " + score;
+        questionType.textContent = question.type;
+        questionText.textContent = question.text;
+        questionNumber.innerHTML = question.display;
+        optionsGrid.innerHTML = question.options.map((option, index) => '<button class="answer-btn" type="button" data-index="' + index + '">' + option.label + '</button>').join("");
+      }
+
+      optionsGrid.addEventListener("click", function (event) {
+        const button = event.target.closest(".answer-btn");
+        if (!button || hasAnswered) return;
+        hasAnswered = true;
+        const selectedIndex = Number(button.dataset.index);
+        const question = questions[currentQuestion];
+        const isCorrect = question.options[selectedIndex].correct;
+        const buttons = Array.from(optionsGrid.querySelectorAll(".answer-btn"));
+        buttons.forEach((answerButton, index) => {
+          answerButton.disabled = true;
+          if (question.options[index].correct) answerButton.classList.add("correct");
+        });
+        if (isCorrect) {
+          score += 10;
+          scoreBox.textContent = "Poin: " + score;
+          feedback.textContent = "Tepat. " + question.explanation;
+          feedback.classList.add("good");
+        } else {
+          button.classList.add("wrong");
+          feedback.textContent = "Belum tepat. " + question.explanation;
+          feedback.classList.add("bad");
+        }
+        nextBtn.innerHTML = currentQuestion === totalQuestions - 1 ? 'Lihat Hasil <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>' : 'Soal Berikutnya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>';
+        nextBtn.classList.add("show");
+      });
+
+      function startQuiz() {
+        questions = prepareQuestions();
+        currentQuestion = 0;
+        score = 0;
+        quizStart.classList.add("hidden");
+        quizFinish.classList.add("hidden");
+        quizGame.classList.remove("hidden");
+        renderQuestion();
+      }
+
+      function showConfetti() {
+        const colors = ["#3676e8", "#19a99a", "#ffc847", "#ff7167", "#8259d5"];
+        const confetti = document.getElementById("confetti");
+        confetti.innerHTML = Array.from({ length: 32 }, (_, i) => {
+          const left = Math.random() * 100;
+          const delay = Math.random() * 0.55;
+          const drift = (Math.random() * 160 - 80) + "px";
+          return '<i class="confetti-piece" style="left:' + left + '%;background:' + colors[i % colors.length] + ';animation-delay:' + delay + 's;--drift:' + drift + '"></i>';
+        }).join("");
+        setTimeout(() => { confetti.innerHTML = ""; }, 2500);
+      }
+
+      function finishQuiz() {
+        quizGame.classList.add("hidden");
+        quizFinish.classList.remove("hidden");
+        document.getElementById("finalScore").textContent = score;
+        const finishTitle = document.getElementById("finishTitle");
+        const finishMessage = document.getElementById("finishMessage");
+        if (score >= 90) {
+          finishTitle.textContent = "Hebat, kamu ahli nilai tempat";
+          finishMessage.textContent = "Jawabanmu sangat mantap. Kamu sudah memahami nilai tempat bilangan ribuan dengan baik.";
+          showConfetti();
+        } else if (score >= 70) {
+          finishTitle.textContent = "Bagus, teruskan latihanmu";
+          finishMessage.textContent = "Pemahamanmu sudah baik. Coba sekali lagi untuk meraih poin lebih tinggi.";
+          showConfetti();
+        } else {
+          finishTitle.textContent = "Usahamu sudah baik";
+          finishMessage.textContent = "Buka kembali bagian belajar dan simulasi, lalu coba tantangannya sekali lagi.";
+        }
+      }
+
+      document.getElementById("startQuizBtn").addEventListener("click", startQuiz);
+      document.getElementById("retryBtn").addEventListener("click", startQuiz);
+      nextBtn.addEventListener("click", function () {
+        if (!hasAnswered) return;
+        if (currentQuestion < totalQuestions - 1) {
+          currentQuestion++;
+          renderQuestion();
+        } else {
+          finishQuiz();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
